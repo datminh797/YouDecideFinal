@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SCLAlertView
 
 class HomeViewController: UIViewController {
     override func viewDidLoad() {
@@ -73,6 +74,9 @@ class HomeViewController: UIViewController {
             self.refreshControl.endRefreshing()
                                 
             guard let response = response else {
+                if(error != nil){
+                    SCLAlertView().showError("Error", subTitle: "\(String(describing: error))")
+                }
                 return
             }
             self.data = response.data.coins

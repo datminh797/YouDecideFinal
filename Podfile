@@ -6,6 +6,7 @@ target 'CryptoCoin' do
   use_frameworks!
 
   # Pods for CryptoCoin
+  pod 'SCLAlertView'
   pod 'SVGKit'
   pod "SwiftChart"
   target 'CryptoCoinTests' do

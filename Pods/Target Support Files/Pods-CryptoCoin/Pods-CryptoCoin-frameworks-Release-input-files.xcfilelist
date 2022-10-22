@@ -1,4 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-CryptoCoin/Pods-CryptoCoin-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework
+${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework
 ${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework
 ${BUILT_PRODUCTS_DIR}/SwiftChart/SwiftChart.framework

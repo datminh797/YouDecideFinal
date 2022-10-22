@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftChart
+import SCLAlertView
 
 class PortfolioViewController: UIViewController {
     
@@ -42,6 +43,11 @@ class PortfolioViewController: UIViewController {
     @objc func refresh(_ sender: AnyObject) {
         self.refreshControl.beginRefreshing()
         NetworkManager.shared.getAllCoins { response, error in
+            
+            if(error != nil){
+                SCLAlertView().showError("Error", subTitle: "\(String(describing: error))")
+            }
+            
             self.dimissLoadingView()
             self.refreshControl.endRefreshing()
             
@@ -125,6 +131,11 @@ class PortfolioViewController: UIViewController {
     
     private func getHistoryCoin(uuid: String, completion:@escaping (String) -> Void) {
         NetworkManager.shared.getHistory(coin: uuid, type: .oneD) { response, error in
+            
+            if(error != nil){
+                SCLAlertView().showError("Error", subTitle: "\(String(describing: error))")
+            }
+            
             self.dimissLoadingView()
             let stringArray = response?.data?.history?.map{$0.price ?? ""}.joined(separator: ",")
             completion(stringArray ?? "")
